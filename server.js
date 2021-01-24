@@ -1,8 +1,8 @@
 const express=require('express');
-const path=require('path');
+///const path=require('path');
 const ejs=require('ejs');
 const bodyParser=require('body-parser');
-const rootDirectory=require('./utilities/path');
+///const rootDirectory=require('./utilities/path');
 const adminRouter = require('./routes/admin');
 const shopRouter =require('./routes/shop');
 const app= express();
@@ -11,7 +11,7 @@ app.set('view engine',ejs);
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
-app.use('/admin', adminRouter.router); ///admin is a filter
+app.use('/admin', adminRouter); ///admin is a filter
 app.use(shopRouter);
 
 app.use((req,res)=>{
