@@ -3,10 +3,11 @@
 const express=require('express');
 ///const adminData=require('./admin');
 const router =express.Router();
-const productController=require('../controllers/products');
+const shopController=require('../controllers/shopController');
 
-router.get('/',productController.getProducts);
-router.get('/products');
+router.get('/',shopController.getProducts);
+router.get('/products', shopController.getProducts);
+router.get('/products/:productId',shopController.getProduct);
 router.get('/cart');
 router.get('/checkout');
 

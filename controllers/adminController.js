@@ -1,5 +1,3 @@
-///controller for all product-related logic
-///const products =[];
 const Product =require('../models/product');
 
 exports.getAddProduct = (req,res)=>{
@@ -25,15 +23,12 @@ exports.postAddProduct= (req,res)=>{
     res.redirect('/'); ///koduleht on shop.html leht
 };
 
-exports.getProducts =(req,res)=>{
-    //const products =adminData.products;
-    Product.fetchAll(products =>{
-        res.render('shop/index.ejs',{
+exports.getProducts=(req,res)=>{
+    Product.fetchAll(products=>{
+        res.render('admin/products.ejs',{
             products: products,
-            pageTitle: 'Main Page',
-            path: '/'
+            pageTitle: 'Admin Products',
+            path: 'admin/products'
+        });
     });
- 
-});
-    ///res.sendFile(path.join(rootDirectory,'views','shop.html'));
- };
+};
